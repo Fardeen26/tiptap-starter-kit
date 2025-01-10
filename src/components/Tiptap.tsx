@@ -38,12 +38,6 @@ const MenuBar = ({ editor }) => {
                 >
                     Code
                 </button>
-                <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-                    Clear marks
-                </button>
-                <button onClick={() => editor.chain().focus().clearNodes().run()}>
-                    Clear nodes
-                </button>
                 <button
                     onClick={() => editor.chain().focus().setParagraph().run()}
                     className={editor.isActive('paragraph') ? 'is-active' : ''}
@@ -73,18 +67,6 @@ const MenuBar = ({ editor }) => {
                     className={editor.isActive('heading', { level: 4 }) ? 'is-active' : ''}
                 >
                     H4
-                </button>
-                <button
-                    onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-                    className={editor.isActive('heading', { level: 5 }) ? 'is-active' : ''}
-                >
-                    H5
-                </button>
-                <button
-                    onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-                    className={editor.isActive('heading', { level: 6 }) ? 'is-active' : ''}
-                >
-                    H6
                 </button>
                 <button
                     onClick={() => editor.chain().focus().toggleBulletList().run()}
@@ -133,7 +115,7 @@ export default function Tiptap() {
         extensions: [
             StarterKit
         ],
-        content: "it is just the functionality",
+        content: "Start editing from here :)",
         editorProps: {
             attributes: {
                 spellcheck: 'false',
@@ -144,8 +126,8 @@ export default function Tiptap() {
     return (
         <>
             <MenuBar editor={editor} />
-            <div className="editor-container">
-                <EditorContent editor={editor} className='p-2 ' />
+            <div className="editor-container bg-gray-800 P-3 text-white">
+                <EditorContent editor={editor} />
             </div>
         </>
     )
